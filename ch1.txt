@@ -1,0 +1,58 @@
+const int x = 8;
+const int toneTable[7][2] = {
+
+  { 261, 1046},  //  Do1
+
+  { 294, 1175},  //  Re2
+
+  { 329, 1318},  //  Mi3
+
+  { 349, 1397},  //  Fa4
+
+  { 392, 1568},  //  So5
+
+  { 440, 1760},  //  La6
+
+  { 493, 1976}   //  Si7
+
+};
+const int music1[]={toneTable[3][1],toneTable[3][2],toneTable[2][2],toneTable[1][2],toneTable[7][1],toneTable[1][2],
+                   toneTable[1][2],toneTable[1][2],toneTable[1][2],toneTable[3][2],toneTable[5][2],toneTable[6][2],
+                   toneTable[4][1],toneTable[2][1],toneTable[1][2],toneTable[7][1],toneTable[6][1],toneTable[7][1],
+                   toneTable[5][1],toneTable[5][1],toneTable[5][1],toneTable[1][2],toneTable[3][2],toneTable[5][2],
+                   toneTable[1][2],toneTable[7][1],toneTable[6][1],toneTable[5][1],toneTable[6][1],toneTable[6][1],
+                   toneTable[3][2],toneTable[4][2],toneTable[4][2],toneTable[3][2],toneTable[2][2],toneTable[3][2],
+                   toneTable[4][1],toneTable[4][2],toneTable[3][2]
+};
+const int music2[]={toneTable[3][1],toneTable[3][2],toneTable[2][2],toneTable[1][2],toneTable[7][1],toneTable[1][2],
+                   toneTable[1][2],toneTable[1][2],toneTable[1][2],toneTable[3][2],toneTable[5][2],toneTable[6][2],
+                   toneTable[2][2],toneTable[1][2],toneTable[7][1],toneTable[6][1],toneTable[7][1],
+                   toneTable[5][1],toneTable[5][1],toneTable[1][2],toneTable[3][2],toneTable[5][2],
+                   toneTable[1][2],toneTable[7][1],toneTable[6][1],toneTable[5][1],toneTable[6][1],toneTable[6][1],
+                   toneTable[3][2],toneTable[4][2],toneTable[4][2],toneTable[3][2],toneTable[2][2],
+                   toneTable[2][2],toneTable[3][2],toneTable[4][2],toneTable[3][2],toneTable[2][2],toneTable[7][1],toneTable[1][2],toneTable[6][1],
+};
+const int lo[]={500,500,500,500,500,500,
+                  500,500,500,500,500,500,
+                   500,500,500,500,500,500,
+                  500,500,500,500,500,500,
+                  500,500,500,500,500,500,
+                   500,500,500,500,500,1000,
+                   1000,500,500
+};
+void setup() {
+   pinMode(x, OUTPUT);
+}
+
+void loop() {
+ int length = sizeof(music1) - 1;
+for(int i=1;i<length;i++)
+{
+  tone(x,music1[i],lo[i] );
+  if(i%6==0)
+    delay(1000);
+   else
+   delay(250);
+  }
+  noTone(8);
+}
